@@ -1,5 +1,25 @@
+function minDepth(node) {
+  if (typeof node === 'undefined') {
+    return 0;
+  }
+  return 1 + Math.min(minDepth(node.left), minDepth(node.right));
+}
+
+function maxDepth(node) {
+  if (typeof node === 'null') {
+    return 0;
+  }
+  return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+}
+
+
+
 const checkBalanced = (rootNode) => {
   /* Your code here */
+  if (typeof rootNode === 'null') {
+    return null;
+  }
+  return maxDepth(rootNode) - minDepth(rootNode) <= 1;
 
 };
 
